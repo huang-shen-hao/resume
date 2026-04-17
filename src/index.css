@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Manrope', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  color: #ffffff;
+  background: #0f0f0f;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: #1a1a1a #000000;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #0f0f0f;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.4;
+  font-kerning: none;
+  overflow-x: hidden;
+}
+
+body a {
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+iframe {
+  border: 0;
+}
+
+#root {
+  isolation: isolate;
+}
+
+.font-display {
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+  font-feature-settings: 'kern' 1;
+  font-weight: 600;
+}
+
+.display-latin {
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.display-cjk-title {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
+  line-height: 1.32;
+  letter-spacing: 0.012em;
+  font-weight: 600;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+.display-cjk-hero {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
+  line-height: 1.36;
+  letter-spacing: 0.014em;
+  font-weight: 600;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+[data-title-kinetic] {
+  will-change: transform;
+}
+
+::selection {
+  background: #ff66cc;
+  color: #111111;
+}
+
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #000000;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #1a1a1a;
+  border-radius: 14px;
+  border: 3px solid #000000;
+}
+
+@keyframes belt-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.belt-track {
+  animation: belt-scroll 26s linear infinite;
+}
+
+.grid-noise {
+  position: relative;
+}
+
+.grid-noise::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    radial-gradient(circle at 12% 18%, rgba(214, 175, 118, 0.09), transparent 36%),
+    radial-gradient(circle at 86% 82%, rgba(214, 175, 118, 0.06), transparent 42%);
+  background-size:
+    82px 82px,
+    82px 82px,
+    100% 100%,
+    100% 100%;
+  pointer-events: none;
+}
+
+.ethos-card {
+  backdrop-filter: blur(8px);
+}
+
+.project-card {
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.18);
+}
+
+.project-card:hover {
+  box-shadow: 0 34px 68px rgba(0, 0, 0, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .belt-track {
+    animation: none !important;
+  }
+
+  [data-title-kinetic] {
+    transform: none !important;
+  }
+
+  .project-card {
+    transform: none !important;
+  }
+
+}
